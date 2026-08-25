@@ -1,1 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aurelle | Perfumes</title>
 
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #faf7f2;
+      color: #222;
+    }
+
+    header {
+      padding: 25px;
+      text-align: center;
+      background: #171717;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 38px;
+      letter-spacing: 5px;
+    }
+
+    header p {
+      margin-top: 8px;
+      color: #ddd;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px;
+      background: #eee6dc;
+    }
+
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin-bottom: 25px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 25px;
+      padding: 40px 25px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .product {
+      background: white;
+      padding: 25px;
+      text-align: center;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .bottle {
+      height: 180px;
+      background: #ddd;
+      border-radius: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+    }
+
+    .product h3 {
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      background: #171717;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #444;
+    }
+
+    #cart {
+      text-align: center;
+      padding: 30px;
+      background: #eee6dc;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #171717;
+      color: white;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>AURELLE</h1>
+    <p>Where every scent tells a story.</p>
+  </header>
+
+  <section class="hero">
+    <h2>Discover Your Signature Scent</h2>
+    <p>Elegant fragrances made to leave a lasting impression.</p>
+  </section>
+
+  <section class="products">
+
+    <div class="product">
+      <div class="bottle">🌸</div>
+      <h3>Aurelle Rose</h3>
+      <p class="price">Rs. 2,500</p>
+      <button onclick="addToCart('Aurelle Rose', 2500)">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <div class="bottle">🌙</div>
+      <h3>Aurelle Noir</h3>
+      <p class="price">Rs. 3,000</p>
+      <button onclick="addToCart('Aurelle Noir', 3000)">
+        Add to Cart
+      </button>
+    </div>
+
+    <div class="product">
+      <div class="bottle">✨</div>
+      <h3>Aurelle Gold</h3>
+      <p class="price">Rs. 3,500</p>
+      <button onclick="addToCart('Aurelle Gold', 3500)">
+        Add to Cart
+      </button>
+    </div>
+
+  </section>
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <p id="cartText">Your cart is empty.</p>
+  </section>
+
+  <footer>
+    © 2026 Aurelle. All rights reserved.
+  </footer>
+
+  <script>
+    let cart = [];
+    let total = 0;
+
+    function addToCart(name, price) {
+      cart.push(name);
+      total += price;
+
+      document.getElementById("cartText").innerHTML =
+        cart.join("<br>") +
+        "<br><br><strong>Total: Rs. " +
+        total +
+        "</strong>";
+    }
+  </script>
+
+</body>
+</html>
